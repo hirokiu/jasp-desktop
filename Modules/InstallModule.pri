@@ -17,7 +17,7 @@ isEmpty(MODULE_NAME) {
 	#Install the actual module package
 	#Install$${MODULE_NAME}.commands     +=  $${INSTALL_R_PKG_CMD_PREFIX}$${MODULE_DIR}/$${MODULE_NAME}$${INSTALL_R_PKG_CMD_POSTFIX}; $$escape_expand(\\n\\t)
 	SETTING_UP_RENV= "Sys.setenv(RENV_PATHS_ROOT=\'$$MODULES_RENV_ROOT\', RENV_PATHS_CACHE=\'$$MODULES_RENV_CACHE\');"
-	
+		
 	Install$${MODULE_NAME}.commands     +=  $$runRCommandForInstall("$$SETTING_UP_RENV jaspBase::installJaspModule(modulePkg=\'$${MODULE_DIR}/$${MODULE_NAME}\', libPathsToUse=NULL, moduleLibrary=\'$${JASP_LIBRARY_DIR}\', repos=\'https://cloud.r-project.org/\', onlyModPkg=FALSE)" )
 	
 	#make sure each module is only installed after the previous one, to avoid renv clobbering itself (or just crashing)

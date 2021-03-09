@@ -36,11 +36,7 @@ std::string _system(std::string cmd)
 	return out.str();
 }
 
-// see https://gcc.gnu.org/onlinedocs/gcc-4.8.5/cpp/Stringification.html
-#define xstr(s) str(s)
-#define str(s)  #s
-
-#define MAC_RHOME "@executable_path/../Frameworks/R.framework/Versions/"  xstr(CURRENT_R_VERSION) "/Resources"
+#define MAC_RHOME "@executable_path/../Frameworks/R.framework/Versions/"  CURRENT_R_VERSION "/Resources"
 
 void _moduleLibraryFixer(const std::string & moduleLibraryPath, bool printStuff)
 {
@@ -110,8 +106,9 @@ void _moduleLibraryFixer(const std::string & moduleLibraryPath, bool printStuff)
 				const std::map<std::string, std::string> replaceThese =
 				{
 					{	"/usr/local/lib/libjags.4.dylib",	"@executable_path/JAGS/libjags.4.dylib"														},
-					{	"/usr/lib/libc++abi.dylib",			MAC_RHOME "/lib/libc++abi.1.dylib"	},
-					{	"/usr/lib/libc++.1.dylib",			MAC_RHOME "/lib/libc++.1.dylib"		}
+				/*	R 4 doesnt have the following anymore:
+					{	"/usr/lib/libc++abi.dylib",			MAC_RHOME "/lib/libc++abi.1.dylib"	}, 
+					{	"/usr/lib/libc++.1.dylib",			MAC_RHOME "/lib/libc++.1.dylib"		} */
 				};
 				//This ought to be sort of mirrored in jasp-required-files/MacOS/Frameworks/create-framework.py
 	
