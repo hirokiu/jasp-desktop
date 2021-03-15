@@ -9,10 +9,13 @@ include(../R_HOME.pri)
 TEMPLATE = aux
 CONFIG -= app_bundle
 
-MODULES_RENV_ROOT	= "$$OUT_PWD/../renv-root"  #I assume we will not need to ship this, but we do need the following folder:
-MODULES_RENV_CACHE	= "$$OUT_PWD/../renv-cache" #While this one needs to be shipped and the symlinks will need to be relative, but we will find out quick enough if not
+MODULES_RENV_ROOT   = $$SYS_RENV_ROOT
+isEmpty(MODULES_RENV_ROOT): MODULES_RENV_ROOT	= "$$OUT_PWD/../renv-root"  #I assume we will not need to ship this, but we do need the following folder:
+							MODULES_RENV_CACHE	= "$$OUT_PWD/../renv-cache" #While this one needs to be shipped and the symlinks will need to be relative, but we will find out quick enough if not
 mkpath($$MODULES_RENV_ROOT)
 mkpath($$MODULES_RENV_CACHE)
+
+message("Using renv-root: $$MODULES_RENV_ROOT")
 
 MODULE_DIR			= $$PWD
 

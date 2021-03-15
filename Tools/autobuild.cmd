@@ -294,6 +294,9 @@ XCOPY  %JASP_DESKTOP%\Resources /E /I Resources
 echo copy Modules
 XCOPY  %JASP_BASE_DIR%\%JASP_WIX_DIR%\%JASP_BUILD_DIR%\Modules /E /I Modules
 
+echo copy renv-cache
+XCOPY  %JASP_BASE_DIR%\%JASP_WIX_DIR%\%JASP_BUILD_DIR%\renv-cache /E /I renv-cache
+
 echo copy help
 XCOPY  %JASP_DESKTOP%\Resources\Help /E /I Help
 

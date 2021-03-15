@@ -3,7 +3,7 @@ isEmpty(MODULE_NAME) {
 } else {
 	isEmpty(MODULE_DIR) MODULE_DIR=$$PWD
 	
-	JASP_LIBRARY_DIR    = $$winPathFix($${JASP_BUILDROOT_DIR}/Modules/$${MODULE_NAME})
+	JASP_LIBRARY_DIR    = $${JASP_BUILDROOT_DIR}/Modules/$${MODULE_NAME}
 	
 	#LOAD_WORKAROUND = true
 	include(../R_INSTALL_CMDS.pri)
